@@ -3,9 +3,8 @@
 public class DirectionMovement : MovementBehaviour
 {
     public DirectionMovement() : base() { }
-    public DirectionMovement(Unit _unit, int _range) : base(_unit)
+    public DirectionMovement(Unit _unit, int _range, float _speed) : base(_unit, _range, _speed)
     {
-        range = _range;
     }
 
     public override List<Tile> GetAvailableMoves(Tile _unit_tile)

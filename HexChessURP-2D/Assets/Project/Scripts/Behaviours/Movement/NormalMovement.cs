@@ -4,7 +4,7 @@ public class NormalMovement : MovementBehaviour
 {
     public NormalMovement() : base() { }
     public NormalMovement(Unit _unit) : base(_unit) { }
-    public NormalMovement(Unit _unit, int _range) : base(_unit, _range)
+    public NormalMovement(Unit _unit, int _range, float _speed) : base(_unit, _range, _speed)
     {
     }
     public override List<Tile> GetAvailableMoves(Tile _unit_tile)

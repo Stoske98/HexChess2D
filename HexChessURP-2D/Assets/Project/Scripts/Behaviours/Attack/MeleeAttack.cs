@@ -4,17 +4,13 @@ using UnityEngine;
 public class MeleeAttack : AttackBehaviour
 {
     GameObject slash_prefab;
-    float speed = 6;
     float animation_speed = 0f;
     Tile _target_tile = null;
     Tile _unit_tile = null;
     public MeleeAttack() : base() { }
-    public MeleeAttack(Unit _unit, Damage _damage, int _range) : base(_unit, _damage, _range)
+    public MeleeAttack(Unit _unit, Damage _damage, int _range, float _attack_speed, GameObject _slash_prefab) : base(_unit, _damage, _range, _attack_speed)
     {
-        if (_unit.class_type == ClassType.Light)
-            slash_prefab = Resources.Load<GameObject>("Effects/Light/slash");
-        else
-            slash_prefab = Resources.Load<GameObject>("Effects/Dark/slash");
+        slash_prefab = _slash_prefab;
     }
 
     public override void Enter()
@@ -25,9 +21,9 @@ public class MeleeAttack : AttackBehaviour
         _unit_tile = MapController.Instance.game.map.GetTile(unit);
 
         float distance = Vector3.Distance(_unit_tile.game_object.transform.position, _target_tile.game_object.transform.position);
-        animation_speed = (distance / speed) * 2;
+        animation_speed = (distance / attack_speed) * 2;
 
-        unit.game_object.LeanScale(unit.game_object.transform.localScale * 2f, distance / speed).setOnComplete(Attack(distance));
+        unit.game_object.LeanScale(unit.game_object.transform.localScale * 2f, distance / attack_speed).setOnComplete(Attack(distance));
     }
 
     private Action Attack(float distance)
@@ -35,7 +31,7 @@ public class MeleeAttack : AttackBehaviour
         return () =>
         {
             Vector3 direcition = (_target_tile.game_object.transform.position - _unit_tile.game_object.transform.position).normalized * 0.25f;
-            unit.game_object.LeanMove(_target_tile.game_object.transform.position - direcition, distance / speed);
+            unit.game_object.LeanMove(_target_tile.game_object.transform.position - direcition, distance / attack_speed);
         };
     }
 
@@ -47,7 +43,7 @@ public class MeleeAttack : AttackBehaviour
             GameObject.Destroy(GameObject.Instantiate(slash_prefab, _target_tile.game_object.transform.position, Quaternion.LookRotation(Vector3.forward, (_target_tile.game_object.transform.position - unit.game_object.transform.position).normalized)), 2);
 
             float distance = Vector3.Distance(_unit_tile.game_object.transform.position, _target_tile.game_object.transform.position);
-            LTDescr tween = unit.game_object.LeanMove(_unit_tile.game_object.transform.position, distance / speed);
+            LTDescr tween = unit.game_object.LeanMove(_unit_tile.game_object.transform.position, distance / attack_speed);
             if (_target_tile.IsWalkable())
             {
                 _unit_tile.RemoveObject(unit);
@@ -65,7 +61,7 @@ public class MeleeAttack : AttackBehaviour
     {
         return () =>
         {
-            unit.game_object.LeanMove(_target_tile.game_object.transform.position, distance / speed).setDelay(0.5f);
+            unit.game_object.LeanMove(_target_tile.game_object.transform.position, distance / attack_speed).setDelay(0.5f);
         };
     }
 }

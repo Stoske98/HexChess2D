@@ -4,15 +4,17 @@ public abstract class AttackBehaviour : Behaviour
 {
     public int amount;
     protected int range;
+    protected float attack_speed;
     protected Damage damage;
     protected IDamagable target;
     public AttackBehaviour() : base() { }
     public AttackBehaviour(Unit _unit) : base(_unit) { }
-    public AttackBehaviour(Unit _unit, Damage _damage, int _range) : base(_unit)
+    public AttackBehaviour(Unit _unit, Damage _damage, int _range, float _attack_speed) : base(_unit)
     {
         amount = _damage.amount;
         damage = _damage;
         range = _range;
+        attack_speed = _attack_speed;
 
         unit.game_object.GetComponentInChildren<HealthAndDamage>().SetDamageTxt(amount);
     }

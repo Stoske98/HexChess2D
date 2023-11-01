@@ -7,13 +7,10 @@ public class TeleportMovement : MovementBehaviour
     float animation_time = 0.35f;
     private GameObject telepor_vfx_prefab;
     public TeleportMovement() : base() { }
-    public TeleportMovement(Unit _unit, int _range) : base(_unit, _range)
+    public TeleportMovement(Unit _unit, int _range, float _speed, GameObject _effect_prefab, float _animation_time) : base(_unit, _range, _speed)
     {
-
-        if (_unit.class_type == ClassType.Light)
-            telepor_vfx_prefab = Resources.Load<GameObject>("Effects/Light/teleport");
-        else
-            telepor_vfx_prefab = Resources.Load<GameObject>("Effects/Dark/teleport");
+        animation_time = _animation_time;
+        telepor_vfx_prefab = _effect_prefab;
     }
     public override void Enter()
     {

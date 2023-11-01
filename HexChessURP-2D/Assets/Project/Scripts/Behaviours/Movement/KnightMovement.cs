@@ -4,7 +4,7 @@ using UnityEngine;
 public class KnightMovement : MovementBehaviour
 {
     public KnightMovement() : base() { }
-    public KnightMovement(Unit _unit, int _range) : base(_unit, _range)
+    public KnightMovement(Unit _unit, int _range, float _speed) : base(_unit, _range, _speed)
     {
     }
     public override List<Tile> GetAvailableMoves(Tile _unit_tile)

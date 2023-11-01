@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Trail : MonoBehaviour
 {
-    public GameObject trail_prefab;
     private GameObject trail_parent;
 
     public float spawn_distance;
@@ -18,26 +17,23 @@ public class Trail : MonoBehaviour
     private Vector3 start_position;
     private Queue<GameObject> trail_queue = new Queue<GameObject>();
 
-    public void Start()
+    public void CreateTrail(Sprite _sprite)
     {
-        trail_parent = new GameObject(gameObject.name + " trail container"); InitalizeTrailObjectPool(); StartCreatingTrails();
+        trail_parent = new GameObject(gameObject.name + " trail container"); InitalizeTrailObjectPool(_sprite); StartCreatingTrails();
         trail_parent.transform.SetParent(MapController.Instance.trails_containter.transform);
     }
-    private void InitalizeTrailObjectPool()
+    private void InitalizeTrailObjectPool(Sprite _sprite)
     {
         for (int i = 0; i < max_trails; i++)
         {
-            GameObject trail = InstantiateTrail();
-            trail.GetComponent<SpriteRenderer>().sortingOrder = sortOrder;
+            GameObject trail = new GameObject();
+            SpriteRenderer sprite_renderer = trail.AddComponent<SpriteRenderer>();
+            sprite_renderer.sprite = _sprite;
+            sprite_renderer.sortingOrder = sortOrder;
             trail_queue.Enqueue(trail);
             trail.transform.SetParent(trail_parent.transform);
             ReturnTrailToPool(trail);
         }
-    }
-    private GameObject InstantiateTrail()
-    {
-        GameObject trail = Instantiate(trail_prefab);
-        return trail;
     }
 
     public void ReturnTrailToPool(GameObject trail)

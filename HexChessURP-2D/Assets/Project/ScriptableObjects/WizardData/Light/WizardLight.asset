@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fb1cf050ffa2d4ca0989f84ff25c80, type: 3}
+  m_Name: WizardLight
+  m_EditorClassIdentifier: 
+  Name: Wizard Light
+  UnitType: 4
+  ClassType: 1
+  MainPrefab: {fileID: 2329375125482761445, guid: 3f7cb8735a6bac243bf98b9fc0c5106c, type: 3}
+  MainSprite: {fileID: 21300000, guid: 845ee21b7a549fe4d9d26c77afeb1644, type: 3}
+  BehaviourScriptableObjects:
+  - {fileID: 11400000, guid: 9eb3a8ffa2a6530469d85d0808e85f5e, type: 2}
+  TrailSprite: {fileID: 21300000, guid: f2ac69cba715ae742911391acbe9ceb7, type: 3}
+  BaseHealth: 3

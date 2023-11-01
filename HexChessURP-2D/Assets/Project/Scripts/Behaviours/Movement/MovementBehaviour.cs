@@ -16,10 +16,11 @@ public abstract class MovementBehaviour : Behaviour
     {
         path = new List<Tile>();
     }
-    public MovementBehaviour(Unit _unit, int _range)
+    public MovementBehaviour(Unit _unit, int _range, float _speed)
     {
         unit = _unit;
         range = _range;
+        movement_speed = _speed;
         path = new List<Tile>();
     }
     public override void Enter()

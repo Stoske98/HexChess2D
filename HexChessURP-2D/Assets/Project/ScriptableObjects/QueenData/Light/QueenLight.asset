@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fb1cf050ffa2d4ca0989f84ff25c80, type: 3}
+  m_Name: QueenLight
+  m_EditorClassIdentifier: 
+  Name: Queen Light
+  UnitType: 6
+  ClassType: 1
+  MainPrefab: {fileID: 2329375125482761445, guid: 3f7cb8735a6bac243bf98b9fc0c5106c, type: 3}
+  MainSprite: {fileID: 21300000, guid: eaa09799aefee8d4eb9fbb394329fa27, type: 3}
+  BehaviourScriptableObjects:
+  - {fileID: 11400000, guid: 28a4d9cd97947d741a593451bc7ca6da, type: 2}
+  - {fileID: 11400000, guid: 8b2ba88f392528e41821fdfe253b7203, type: 2}
+  TrailSprite: {fileID: 21300000, guid: 6bfe82fbd7f09b445b47fcd1282c5b85, type: 3}
+  BaseHealth: 3

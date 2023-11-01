@@ -6,7 +6,19 @@ public static class Spawner
     {
 
     }
-    //SWORDSMAN
+    public static Unit SpawnUnit(Game _game, Tile _tile, UnitType _unit_type, ClassType _class_type)
+    {
+        Unit_ScriptableObject _unit_data = MapController.Instance.GetUnitSciptableObject(_unit_type, _class_type);
+        if (_unit_data is Figure_ScriptableObject _figure_data)
+        {
+            Figure figure = new Figure(_figure_data); 
+            _game.map.PlaceObject(figure, _tile);
+            _game.object_manager.AddObject(figure);
+            return figure;
+        }
+        return null;
+    }
+   /* //SWORDSMAN
     public static Unit SpawnLightSwordsman(Game _game, Tile _tile)
     {
         FigureData data = new FigureData()
@@ -470,16 +482,16 @@ public static class Spawner
         switch (_movement_type)
         {
             case "normal_movement":
-                movement_behaviour = new NormalMovement(_unit, _range);
+                //movement_behaviour = new NormalMovement(_unit, _range);
                 break;
             case "directional_movement":
-                movement_behaviour = new DirectionMovement(_unit, _range);
+               // movement_behaviour = new DirectionMovement(_unit, _range);
                 break;
             case "knight_movement":
-                movement_behaviour = new KnightMovement(_unit, _range);
+               // movement_behaviour = new KnightMovement(_unit, _range);
                 break;
             case "teleport_movement":
-                movement_behaviour = new TeleportMovement(_unit, _range);
+              // movement_behaviour = new TeleportMovement(_unit, _range);
                 break;
             default:
                 movement_behaviour = new NoMovement(_unit);
@@ -508,11 +520,11 @@ public static class Spawner
         switch (_attack_type)
         {
             case "melee_attack":
-                attack_behaviour = new MeleeAttack(_unit, damage, _range);
+                //attack_behaviour = new MeleeAttack(_unit, damage, _range, 0);
                 break;
 
             case "ranged_attack":
-                attack_behaviour = new RangedAttack(_unit, damage, _range, projectil_prefab);
+                //attack_behaviour = new RangedAttack(_unit, damage, _range, projectil_prefab);
                 break;
 
             default:
@@ -520,10 +532,10 @@ public static class Spawner
                 break;
         }
         return attack_behaviour;
-    }
+    }*/
 
     public static void SpawnChallengeRoyaleObjects(Game _game)
-    {
+    {/*
         //Light
         SpawnLightKing(_game, _game.map.GetTile(0, -4));
         SpawnLightQueen(_game, _game.map.GetTile(0, -3));
@@ -564,6 +576,45 @@ public static class Spawner
 
         SpawnDarkJester(_game, _game.map.GetTile(2, 2));
         SpawnDarkWizard(_game, _game.map.GetTile(-2, 4));
+*/
+        //light
+        SpawnUnit(_game, _game.map.GetTile(0, -4), UnitType.King, ClassType.Light);
+        SpawnUnit(_game, _game.map.GetTile(0, -3), UnitType.Queen, ClassType.Light);
 
+        SpawnUnit(_game, _game.map.GetTile(0, -2), UnitType.Swordsman, ClassType.Light);
+        SpawnUnit(_game, _game.map.GetTile(-2, -1), UnitType.Swordsman, ClassType.Light);
+        SpawnUnit(_game, _game.map.GetTile(2, -3), UnitType.Swordsman, ClassType.Light);
+
+        SpawnUnit(_game, _game.map.GetTile(-3, -1), UnitType.Archer, ClassType.Light);
+        SpawnUnit(_game, _game.map.GetTile(3, -4), UnitType.Archer, ClassType.Light);
+
+        SpawnUnit(_game, _game.map.GetTile(1, -4), UnitType.Tank, ClassType.Light);
+        SpawnUnit(_game, _game.map.GetTile(-1, -3), UnitType.Tank, ClassType.Light);
+
+        SpawnUnit(_game, _game.map.GetTile(-1, -2), UnitType.Knight, ClassType.Light);
+        SpawnUnit(_game, _game.map.GetTile(1, -3), UnitType.Knight, ClassType.Light);
+
+        SpawnUnit(_game, _game.map.GetTile(-2, -2), UnitType.Jester, ClassType.Light);
+        SpawnUnit(_game, _game.map.GetTile(2, -4), UnitType.Wizard, ClassType.Light);
+
+        // dark
+        SpawnUnit(_game, _game.map.GetTile(0, 4), UnitType.King, ClassType.Dark);
+        SpawnUnit(_game, _game.map.GetTile(0, 3), UnitType.Queen, ClassType.Dark);
+
+        SpawnUnit(_game, _game.map.GetTile(0, 2), UnitType.Swordsman, ClassType.Dark);
+        SpawnUnit(_game, _game.map.GetTile(2, 1), UnitType.Swordsman, ClassType.Dark);
+        SpawnUnit(_game, _game.map.GetTile(-2, 3), UnitType.Swordsman, ClassType.Dark);
+
+        SpawnUnit(_game, _game.map.GetTile(3, 1), UnitType.Archer, ClassType.Dark);
+        SpawnUnit(_game, _game.map.GetTile(-3, 4), UnitType.Archer, ClassType.Dark);
+
+        SpawnUnit(_game, _game.map.GetTile(-1, 4), UnitType.Tank, ClassType.Dark);
+        SpawnUnit(_game, _game.map.GetTile(1, 3), UnitType.Tank, ClassType.Dark);
+
+        SpawnUnit(_game, _game.map.GetTile(-1, 3), UnitType.Knight, ClassType.Dark);
+        SpawnUnit(_game, _game.map.GetTile(1, 2), UnitType.Knight, ClassType.Dark);
+
+        SpawnUnit(_game, _game.map.GetTile(2, 2), UnitType.Jester, ClassType.Dark);
+        SpawnUnit(_game, _game.map.GetTile(-2, 4), UnitType.Wizard, ClassType.Dark);
     }
 }

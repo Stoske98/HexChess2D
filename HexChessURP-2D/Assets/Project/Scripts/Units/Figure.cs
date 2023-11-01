@@ -1,16 +1,25 @@
 ﻿using System;
+using UnityEditor;
 using UnityEngine;
 
 public class Figure : Unit, IDamagable
 {
     public int max_health { get; set; }
     public int current_health { get; set; }
-    public Figure(ClassType _class_type, UnitType _unit_type, Data _data) : base(_class_type, _unit_type, _data)
+    public Figure(ClassType _class_type, UnitType _unit_type, FigureData _data) : base(_class_type, _unit_type, _data)
     {
-        FigureData figure_data = _data as FigureData;
-        max_health = figure_data.max_health;
-        current_health = figure_data.current_health;
+        max_health = _data.max_health;
+        current_health = _data.current_health;
 
+        game_object.GetComponentInChildren<HealthAndDamage>().SetHealthTxt(current_health);
+    }
+
+    public Figure(Figure_ScriptableObject _figure_data) : base(_figure_data) 
+    {
+        max_health = _figure_data.BaseHealth;
+        current_health = max_health;
+
+        game_object.GetComponentInChildren<Trail>().CreateTrail(_figure_data.TrailSprite);
         game_object.GetComponentInChildren<HealthAndDamage>().SetHealthTxt(current_health);
     }
 

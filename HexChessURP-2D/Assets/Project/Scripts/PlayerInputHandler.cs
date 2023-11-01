@@ -106,7 +106,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (selected_unit != null)
         {
             MovementBehaviour _movement_behaviour = selected_unit.GetBehaviour<MovementBehaviour>();
-            if (_movement_behaviour != null && _movement_behaviour.GetAvailableMoves(map_controller.game.map.GetTile(selected_unit)).Contains(_tile))
+            if (_movement_behaviour != null && _movement_behaviour.GetType() != typeof(NoMovement) && _movement_behaviour.GetAvailableMoves(map_controller.game.map.GetTile(selected_unit)).Contains(_tile))
             {
                 selected_unit.Move(map_controller.game.map.GetTile(selected_unit), _tile);
                 map_controller.ResetFields();
@@ -115,7 +115,7 @@ public class PlayerInputHandler : MonoBehaviour
                 return true;
             }
             AttackBehaviour _attack_behaviour = selected_unit.GetBehaviour<AttackBehaviour>();
-            if (_attack_behaviour != null && _attack_behaviour.GetAttackMoves(map_controller.game.map.GetTile(selected_unit)).Contains(_tile))
+            if (_attack_behaviour != null && _attack_behaviour.GetType() != typeof(NoAttack) && _attack_behaviour.GetAttackMoves(map_controller.game.map.GetTile(selected_unit)).Contains(_tile))
             {
                 Unit _target = _tile.GetObjectOfType<Unit>();
                 if (_target != null && _target is IDamagable damagable)

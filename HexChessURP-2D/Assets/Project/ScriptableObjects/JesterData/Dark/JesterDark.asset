@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fb1cf050ffa2d4ca0989f84ff25c80, type: 3}
+  m_Name: JesterDark
+  m_EditorClassIdentifier: 
+  Name: Jester Dark
+  UnitType: 5
+  ClassType: 2
+  MainPrefab: {fileID: 2329375125482761445, guid: 3f7cb8735a6bac243bf98b9fc0c5106c, type: 3}
+  MainSprite: {fileID: 21300000, guid: 081aa0895835b374dbb8192fb86aa822, type: 3}
+  BehaviourScriptableObjects:
+  - {fileID: 11400000, guid: 0cba9170b83311f40b44df7eecba4a6c, type: 2}
+  - {fileID: 11400000, guid: 183ad9a55414e0b439de3b1e9cbfcf47, type: 2}
+  TrailSprite: {fileID: 21300000, guid: b3ee2dce6c3011449bc127bdfcadb7cf, type: 3}
+  BaseHealth: 2

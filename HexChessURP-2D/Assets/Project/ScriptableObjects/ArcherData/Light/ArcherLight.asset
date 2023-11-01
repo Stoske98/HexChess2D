@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fb1cf050ffa2d4ca0989f84ff25c80, type: 3}
+  m_Name: ArcherLight
+  m_EditorClassIdentifier: 
+  Name: Archer Light
+  UnitType: 3
+  ClassType: 1
+  MainPrefab: {fileID: 2329375125482761445, guid: 3f7cb8735a6bac243bf98b9fc0c5106c, type: 3}
+  MainSprite: {fileID: 21300000, guid: 999e1e6c3abd6594aad3d30a377666fa, type: 3}
+  BehaviourScriptableObjects:
+  - {fileID: 11400000, guid: ff51f5d365b5cde47919512d11733922, type: 2}
+  - {fileID: 11400000, guid: 2ef628dec87a63e43b100570c0664260, type: 2}
+  TrailSprite: {fileID: 21300000, guid: 8e91d6cecc3e4ea4eb07ca298ec0383d, type: 3}
+  BaseHealth: 2

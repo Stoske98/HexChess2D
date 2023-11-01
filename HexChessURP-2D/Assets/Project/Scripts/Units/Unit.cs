@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class Unit : IObject
@@ -23,6 +24,20 @@ public abstract class Unit : IObject
         to_do_behaviours = new Queue<Behaviour>();
         game_object = GameObject.Instantiate(Resources.Load<GameObject>(_data.game_object_path));
         game_object.transform.SetParent(MapController.Instance.objects_containter.transform);
+    }
+
+    public Unit(Unit_ScriptableObject _unit_data)
+    {
+        class_type = _unit_data.ClassType;
+        unit_type = _unit_data.UnitType;
+        game_object = GameObject.Instantiate(_unit_data.MainPrefab);
+        game_object.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = _unit_data.MainSprite;
+        game_object.transform.SetParent(MapController.Instance.objects_containter.transform);
+        behaviours = new List<Behaviour>();
+        to_do_behaviours = new Queue<Behaviour>();
+
+        foreach (Behaviour_ScriptableObject behaviour_so in _unit_data.BehaviourScriptableObjects) 
+            behaviour_so.SetUp(this);
     }
     public void Update()
     {

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fb1cf050ffa2d4ca0989f84ff25c80, type: 3}
+  m_Name: JesterLight
+  m_EditorClassIdentifier: 
+  Name: Jester Light
+  UnitType: 5
+  ClassType: 1
+  MainPrefab: {fileID: 2329375125482761445, guid: 3f7cb8735a6bac243bf98b9fc0c5106c, type: 3}
+  MainSprite: {fileID: 21300000, guid: 0e787d32f0aaaf844b2f1ad91c06074a, type: 3}
+  BehaviourScriptableObjects:
+  - {fileID: 11400000, guid: 0cba9170b83311f40b44df7eecba4a6c, type: 2}
+  - {fileID: 11400000, guid: 0080d390a96b48a489c2ee6b3bcf4c6c, type: 2}
+  TrailSprite: {fileID: 21300000, guid: ee5d5b1d96003224084d193f11b6b7fc, type: 3}
+  BaseHealth: 2

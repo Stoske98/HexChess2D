@@ -30,6 +30,7 @@ public class MapController : MonoBehaviour
     public Transform objects_containter;
     public Transform trails_containter;
     public Material dissolve_mat;
+    public List<Unit_ScriptableObject> units_so;
    /* public Material default_mat;
     public Material evil_mat;*/
     void Start()
@@ -93,5 +94,16 @@ public class MapController : MonoBehaviour
             default:
                 return null;
         }
+    }
+
+    public Unit_ScriptableObject GetUnitSciptableObject(UnitType _unit_type, ClassType _class_type)
+    {
+        foreach (Unit_ScriptableObject unit_so in units_so)
+        {
+            if (unit_so.ClassType == _class_type && unit_so.UnitType == _unit_type)
+                return unit_so;
+        }
+
+        return null;
     }
 }
